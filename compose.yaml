@@ -17,7 +17,6 @@ services:
     environment:
       - OLLAMA_HOST=0.0.0.0
     volumes:
-      - .:/code
       - ./ollama/ollama:/root/.ollama
       - ./ollama/entrypoint.sh:/entrypoint.sh
     entrypoint: ["/usr/bin/bash", "/entrypoint.sh"]
