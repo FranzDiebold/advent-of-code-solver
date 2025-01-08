@@ -2,4 +2,6 @@ langchain-core
 langchain-community
 langgraph
 langchain-google-genai
+langchain-ollama
 pydantic
+python-slugify
