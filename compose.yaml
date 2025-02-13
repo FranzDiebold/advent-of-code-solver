@@ -8,7 +8,6 @@ services:
     working_dir: /usr/src/advent-of-code-solver
     depends_on:
       - ollama
-      - open-webui
 
   ollama:
     image: ollama/ollama:latest
@@ -20,16 +19,3 @@ services:
       - ./ollama/ollama:/root/.ollama
       - ./ollama/entrypoint.sh:/entrypoint.sh
     entrypoint: ["/usr/bin/bash", "/entrypoint.sh"]
-
-  open-webui:
-    image: ghcr.io/open-webui/open-webui:main
-    volumes:
-      - ./ollama/open-webui:/app/backend/data
-    depends_on:
-      - ollama
-    ports:
-      - 8080:8080
-    environment:
-      - OLLAMA_BASE_URLS=http://ollama:11434
-      - ENV=dev
-      - WEBUI_AUTH=False
